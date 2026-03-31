@@ -1,0 +1,263 @@
+:root {
+  color-scheme: light;
+  --bg: #f4eadb;
+  --bg-strong: #e5d0aa;
+  --panel: rgba(250, 244, 234, 0.85);
+  --panel-strong: rgba(236, 222, 196, 0.94);
+  --ink: #1b2530;
+  --ink-soft: #4d5a65;
+  --accent: #d95f32;
+  --accent-2: #214e74;
+  --line: rgba(27, 37, 48, 0.12);
+  --success: #3d7d4a;
+  --warning: #8e5f1a;
+  --shadow: 0 24px 80px rgba(57, 37, 14, 0.18);
+  font-family: "Avenir Next", Futura, "Trebuchet MS", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(217, 95, 50, 0.16), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(33, 78, 116, 0.18), transparent 30%),
+    linear-gradient(135deg, var(--bg), #f6f1e7 52%, #efe1c8);
+  color: var(--ink);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 360px minmax(0, 1fr);
+  min-height: 100vh;
+  gap: 18px;
+  padding: 18px;
+}
+
+.panel {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
+  border-radius: 26px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px;
+  animation: panel-enter 300ms ease;
+}
+
+.hero {
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 0.95;
+}
+
+.hero p {
+  margin: 12px 0 0;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.search-input {
+  width: 100%;
+  border: 1px solid rgba(27, 37, 48, 0.16);
+  border-radius: 16px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.stack {
+  display: grid;
+  gap: 10px;
+}
+
+.card {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.52);
+  border-radius: 18px;
+  padding: 14px;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.card:hover {
+  transform: translateY(-1px);
+  border-color: rgba(27, 37, 48, 0.24);
+}
+
+.card strong,
+.section-title {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.muted {
+  color: var(--ink-soft);
+}
+
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  padding: 7px 10px;
+  background: rgba(33, 78, 116, 0.09);
+  color: var(--accent-2);
+  font-size: 0.84rem;
+}
+
+.pill.warn {
+  background: rgba(217, 95, 50, 0.12);
+  color: var(--accent);
+}
+
+.pill.good {
+  background: rgba(61, 125, 74, 0.12);
+  color: var(--success);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.button {
+  border: none;
+  border-radius: 14px;
+  padding: 11px 14px;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  transition: transform 180ms ease, opacity 180ms ease, background 180ms ease;
+}
+
+.button.secondary {
+  background: var(--accent-2);
+}
+
+.button.ghost {
+  background: rgba(27, 37, 48, 0.1);
+  color: var(--ink);
+}
+
+.button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.button:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+.scene-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+.scene-canvas {
+  width: 100%;
+  min-height: calc(100vh - 36px);
+  border-radius: 28px;
+}
+
+.scene-overlay {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: min(360px, calc(100% - 40px));
+  display: grid;
+  gap: 10px;
+}
+
+.overlay-card {
+  border-radius: 20px;
+  padding: 16px;
+  background: var(--panel-strong);
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 50px rgba(23, 27, 32, 0.14);
+}
+
+.mini-list {
+  display: grid;
+  gap: 8px;
+  max-height: 220px;
+  overflow: auto;
+}
+
+.mono {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+.file-input {
+  display: block;
+}
+
+.status {
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(33, 78, 116, 0.08);
+  color: var(--accent-2);
+}
+
+.status.error {
+  background: rgba(217, 95, 50, 0.12);
+  color: var(--accent);
+}
+
+@keyframes panel-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 980px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .scene-canvas {
+    min-height: 60vh;
+  }
+}
+
